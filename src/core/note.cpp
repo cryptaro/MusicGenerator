@@ -3,7 +3,6 @@
 #include <cmath>
 #include <iostream>
 
-#define two_pi 6.283185307179586476925286766559
 
 double Note::getFrequence(NoteName n, unsigned octave, bool sharp){
     return (doBase)*pow(2,(n+(sharp?1.:0.)+octave*12.)/12.);
@@ -44,6 +43,7 @@ Note& Note::operator=(const Note &n){
     m_freq = n.m_freq;
     m_duration_sec = n.m_duration_sec;
     m_amplitude = n.m_amplitude;
+    return *this;
 }
 
 Note Note::getNextNote(unsigned octave, unsigned nbHalfTone){
@@ -60,7 +60,7 @@ std::string Note::toString()const{
 double Note::sinFrequence(int x, double hz)const{
 //    if(x%100==0)
 //    std::cout << 1/(1+1/(m_duration_sec*hz-x)) <<std::endl;
-    return m_amplitude*(1/(1+50/sqrt(m_duration_sec*hz-x))) * sin(two_pi*x*(m_freq)/ hz);
+    return m_amplitude*sin(PI2*x*(m_freq)/ hz);
 }
 //Playable Note::clone()const{
 //    return Note(*this);

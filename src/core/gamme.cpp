@@ -1,7 +1,7 @@
 #include "core/gamme.h"
 
 Gamme::Gamme(Note _fondamentale, GAMME_RELATIVITY _relativity):
-tonalityM({2,4,5,7,9,11}),tonalitym({2,3,5,7,8,11}){
+tonalityM{2,4,5,7,9,11},tonalitym{2,3,5,7,8,11}{
     m_fondamentale = _fondamentale;
     m_relativity = _relativity;
 }
